@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FlightGearApp</string>
+    <string name="ip">IP:</string>
+    <string name="port">PORT:</string>
+    <string name="welcome">Welcome To FlightGear Simulator!</string>
+    <string name="connect">CONNECT</string>
+
+</resources>

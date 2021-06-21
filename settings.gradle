@@ -1,0 +1,2 @@
+rootProject.name = "FlightGearApp"
+include ':app'
