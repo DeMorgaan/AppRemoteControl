@@ -7,6 +7,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.PixelFormat;
 import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.util.AttributeSet;
@@ -31,6 +32,17 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
     private final int shade = 5; //The shade of the joystick 'stalk'
     private JoystickListener joystickListener; //responsible for the clallback method
 
+    /*
+    A method to set up the dimensions of the Joystick view, so it can fit to the Surface View.
+    I divided the values - just as an effort to locate the joystick in the center as much as possible.
+    Method is called from the constructor.
+     */
+    public void setSizes() {
+        this.midX = getWidth() / 2;
+        this.midY = getHeight() / 2;
+        radius = Math.min(getWidth(), getHeight()) / 3;
+        hatRadius = Math.min(getWidth(), getHeight()) / 7;
+    }
 
     public JoystickView(Context context) {
         super(context);
@@ -119,6 +131,9 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
     public void surfaceCreated(@NonNull SurfaceHolder holder) {
         setSizes();
         joystickDrawer(midX, midY);
+
+        this.setZOrderOnTop(true);
+        this.getHolder().setFormat(PixelFormat.TRANSLUCENT);
     }
 
     @Override
@@ -131,17 +146,7 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
 
     }
 
-    /*
-    A method to set up the dimensions of the Joystick view, so it can fit to the Surface View.
-    I divided the values - just as an effort to locate the joystick in the center as much as possible.
-    Method is called from the constructor.
-     */
-    public void setSizes() {
-        this.midX = getWidth() / 2;
-        this.midY = getHeight() / 2;
-        radius = Math.min(getWidth(), getHeight()) / 3;
-        hatRadius = Math.min(getWidth(), getHeight()) / 5;
-    }
+
 
     /*
     A method ot draw the Joystick on the screen, using Canvas Object.
@@ -152,6 +157,7 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
         {
             Canvas canvasDrawer = this.getHolder().lockCanvas(); //The canvas, on which it will be drawn
             Paint painter = new Paint(); //A painter, which will set colors and make the drawing
+
             canvasDrawer.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR); //A method to clean the Canvas.
 
             float angleCalc; //Helps caculate the shading rate of the joystick's stalk
@@ -160,13 +166,14 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
             float sin = (yValue - midY) / angleCalc;
             float cos = (xValue - midX) / angleCalc;
 
-            painter.setARGB(255, 100, 100, 100);
+            painter.setARGB(255, 219,189,31);
             canvasDrawer.drawCircle(this.midX, this.midY, this.radius, painter); //Drawing the Joystick
 
             for (int i = 1; i <= (int)(radius/shade); i++)
             {
 //            painter.setARGB(30, 120, 12, 15); //Set a color to the painter
-                painter.setARGB(150/i, 255, 0, 0);
+//                painter.setARGB(150/i, 120, 218, 135);
+                painter.setARGB(150/i, 94, 72, 1);
 //            canvasDrawer.drawCircle(this.midX, this.midY, this.radius, painter); //Drawing the Joystick
                 canvasDrawer.drawCircle(xValue - cos * angleCalc * (shade / radius) * i,
                         yValue - sin * angleCalc * (shade / radius) * i, i * (hatRadius * shade / radius), painter);
@@ -175,7 +182,7 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
             //To draw the hat
             for(int i = 0; i <= (int)(hatRadius / shade); i++)
             {
-                painter.setARGB(255, (int)(i*(255*shade/hatRadius)), (int)(i*(255*shade/hatRadius)), 255);
+                painter.setARGB(130, (int)(i*(120*shade/hatRadius)), (int)(i*(255*shade/hatRadius)), 135);
                 canvasDrawer.drawCircle(xValue, yValue, hatRadius - (float)i*(shade)/3, painter); //Drawing the hat of the joystick
             }
 //        painter.setARGB(255, 0, 0, 255);

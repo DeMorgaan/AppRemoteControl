@@ -1,26 +1,148 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
+    android:background="#114064"
+    android:padding="20dp">
+
+    <Button
+        android:id="@+id/disco"
+        android:layout_width="254dp"
+        android:layout_height="66dp"
+        android:backgroundTint="#e6c100"
+        android:gravity="center"
+        android:text="Disconnect"
+        android:textColor="#114064"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="250dp"
         android:id="@+id/textView"
-        android:textSize="26sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        android:layout_gravity="center"
+        android:layout_width="325dp"
+        android:layout_height="82dp"
+        android:background="#114064"
         android:gravity="center"
-        android:background="@color/cardview_shadow_end_color"
-        />
+        android:textColor="#78da87"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.441"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <com.example.flightgearapp.View.JoystickView
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:padding="1dp"
-        />
-</LinearLayout>
+    <TextView
+        android:id="@+id/details"
+        android:layout_width="316dp"
+        android:layout_height="51dp"
+        android:background="#114064"
+
+        android:gravity="center"
+        android:textColor="#e6c100"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.457"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.158" />
+
+    <SeekBar
+        android:id="@+id/throttle"
+        android:layout_width="107dp"
+        android:layout_height="325dp"
+        android:minHeight="30dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/custom_seekbar"
+        android:rotation="270"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:thumbTint="#ffd600"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.843" />
+
+    <FrameLayout
+        android:layout_width="233dp"
+        android:layout_height="312dp"
+        android:background="#103f63"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.862">
+
+        <com.example.flightgearapp.View.JoystickView
+            android:id="@+id/joystickView3"
+            android:layout_width="237dp"
+            android:layout_height="303dp" />
+    </FrameLayout>
+
+    <SeekBar
+        android:id="@+id/ruddder"
+        android:layout_width="172dp"
+        android:layout_height="35dp"
+        android:progress="1"
+        android:progressDrawable="@drawable/custom_seekbar"
+        android:scaleX="2"
+        android:scaleY="2"
+        android:thumbTint="#ffd600"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.393"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <!--    <com.google.android.material.slider.Slider-->
+    <!--        android:id="@+id/rudder"-->
+    <!--        android:layout_width="330dp"-->
+    <!--        android:layout_height="47dp"-->
+    <!--        android:value="0"-->
+    <!--        android:valueFrom="-100"-->
+    <!--        android:valueTo="100"-->
+    <!--        app:labelBehavior="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.493"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.911"-->
+    <!--        app:thumbColor="#ff4500"-->
+    <!--        app:trackColorActive="#ff4500"-->
+    <!--        app:trackColorInactive="#fbb999" />-->
+
+    <!--    <SeekBar-->
+    <!--        android:id="@+id/seekBar"-->
+    <!--        android:layout_width="214dp"-->
+    <!--        android:layout_height="29dp"-->
+    <!--        android:max="100"-->
+    <!--        android:min="-100"-->
+    <!--        android:progress="1"-->
+    <!--        android:scaleX="2"-->
+    <!--        android:scaleY="2"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.421"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/joystickView3"-->
+    <!--        app:layout_constraintVertical_bias="0.402" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>

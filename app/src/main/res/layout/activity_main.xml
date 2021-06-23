@@ -1,59 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical">
+    android:background="#114064">
 
 
-<!--    IP input-->
+    <!--    IP input-->
+
+    <!--    Port input-->
+
+    <!--    Connect button-->
+
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:width="150sp"
-        android:hint="@string/ip"
-        android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
         android:id="@+id/ip"
-        android:layoutDirection="rtl"
-        />
-
-<!--    Port input-->
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="@string/port"
-        android:width="150sp"
+        android:layout_width="142dp"
+        android:layout_height="39dp"
+        android:width="150dp"
+        android:background="#e6c100"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"
-        android:id="@+id/port"
-        android:layoutDirection="rtl"
-        />
-
-<!--    Connect button-->
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/connect"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:id="@+id/connect"
-        />
-
-<!--    Checking-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="45sp"
+        android:hint="@string/ip"
+        android:layoutDirection="ltr"
+        android:textColor="#114064"
+        android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="@color/teal_200"
-        android:id="@+id/output"
+        app:layout_constraintBottom_toTopOf="@+id/port"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.544" />
+
+    <EditText
+        android:id="@+id/port"
+        android:layout_width="142dp"
+        android:layout_height="39dp"
+        android:width="150sp"
+        android:background="#e6c100"
         android:gravity="center"
-        android:layout_gravity="center"
-        android:padding="50sp"
-        android:layout_margin="30sp"
+        android:hint="@string/port"
+        android:layoutDirection="ltr"
+        android:textColor="#114064"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102" />
+
+
+    <Button
+        android:id="@+id/connect"
+        android:layout_width="212dp"
+        android:layout_height="61dp"
+        android:backgroundTint="#e6c100"
+        android:text="@string/connect"
+        android:textColor="#114064"
+        android:textSize="26sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/port"
+        app:layout_constraintVertical_bias="0.035" />
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="398dp"
+        android:layout_height="278dp"
+        android:background="@drawable/bg"
+        android:fontFamily="sans-serif-black"
         android:textAlignment="center"
-     />
-</LinearLayout>
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        android:textStyle="normal|bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.96" />
+
+    <TextView
+        android:id="@+id/msg"
+        android:layout_width="351dp"
+        android:layout_height="42dp"
+        android:gravity="center"
+        android:layoutDirection="ltr"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.333" />
+
+    <Button
+        android:id="@+id/about"
+        android:layout_width="114dp"
+        android:layout_height="43dp"
+        android:gravity="center"
+        android:text="ABOUT"
+        android:textColor="#114064"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.435" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,5 +4,14 @@
     <string name="port">PORT:</string>
     <string name="welcome">Welcome To FlightGear Simulator!</string>
     <string name="connect">CONNECT</string>
+    <string name="info">
+        Flight Gear is a School-Flight Simulator."\n"
+        This App provides the functionality to"\n"
+        Cconnect to a FG\'\s server and remote"\n"
+        A joystick control,which commands the"\n"
+        FG respectively and obtain total control"\n"
+        Of the Rudder, Throttle, Elevator and"\n"
+        Aileron components."
+    </string>
 
 </resources>
