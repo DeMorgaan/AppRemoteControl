@@ -9,12 +9,10 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,11 +20,11 @@ import com.example.flightgearapp.R;
 import com.example.flightgearapp.ViewModel.JoystickActivity;
 import com.example.flightgearapp.ViewModel.Validator;
 
-public class MainActivity extends AppCompatActivity implements JoystickView.JoystickListener {
+public class MainActivity extends AppCompatActivity {
 
+    //Members:
     Validator validator;
     int counter = 0;
-    int portNumber;
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -34,44 +32,56 @@ public class MainActivity extends AppCompatActivity implements JoystickView.Joys
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-            EditText ip = findViewById(R.id.ip);
-            EditText port = findViewById(R.id.port);
-            Button connect = findViewById(R.id.connect);
-            TextView info = findViewById(R.id.info);
-            Button about = findViewById(R.id.about);
 
-            Window window = getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            int colorCodeDark = Color.parseColor("#114064");
-            window.setStatusBarColor(colorCodeDark);
-            getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
-            getSupportActionBar().setCustomView(R.layout.actionbar);
+        //Extract XML elements
+        EditText ip = findViewById(R.id.ip);
+        EditText port = findViewById(R.id.port);
+        Button connect = findViewById(R.id.connect);
+        TextView info = findViewById(R.id.info);
+        Button about = findViewById(R.id.about);
 
-            connect.setOnClickListener(v -> {
+        //Design: Set the color of the App Theme.
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        int colorCodeDark = Color.parseColor("#114064");
+        window.setStatusBarColor(colorCodeDark);
+        getSupportActionBar().setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
+        getSupportActionBar().setCustomView(R.layout.actionbar);
 
-                String ipAddress = ip.getText().toString();
-                String prePort = port.getText().toString();
-                if(prePort.matches("") || ipAddress.matches("")) {
-                    Toast.makeText(this, "Please insert input", Toast.LENGTH_LONG).show();
-                    return;
-                } else {
-                    portNumber = Integer.parseInt(prePort);
-                }
-                validator = new Validator(ipAddress, portNumber);
+        //When "Connect" button is clicked
+        connect.setOnClickListener(v -> {
 
-                    if(validator.ipValidator(ipAddress) && validator.portValidator(portNumber)) {
-//                        setContentView(R.layout.activity_joystick);
+            validator = new Validator();
 
+            String ipAddress = ip.getText().toString();
+            String prePort = port.getText().toString();
+            int portNumber;
+
+            //Validations, such as: given String is not empty, port num is within possible ranges etc.
+            if(!validator.emptyValidation(ipAddress, prePort))
+                Toast.makeText(this, "PLEASE INSERT DATA INPUT!\n", Toast.LENGTH_LONG).show(); //No input inserted
+            else
+                {
+                    portNumber = Integer.parseInt(prePort); //String are not empty, wrap it
+                    validator = new Validator(ipAddress, portNumber); //Values aren't empty so they are passed to validation
+
+                    if(validator.ipValidator(ipAddress) && validator.portValidator(portNumber))
+                    {
                         Intent intent = new Intent(MainActivity.this, JoystickActivity.class);
                         intent.putExtra("ip", ipAddress);
                         intent.putExtra("port", portNumber);
                         startActivity(intent);
-                    } else {
+                    }
+                    else
+                    {
                         TextView clientMsg = findViewById(R.id.msg);
                         clientMsg.setText("WRONG CONNECTION DETAILS");
                     }
-            });
+                }
+        });
 
+
+        //When "ABOUT" button is being clicked.
             about.setOnClickListener(v -> {
                 counter++;
                 if(counter % 2 != 0) {
@@ -83,12 +93,5 @@ public class MainActivity extends AppCompatActivity implements JoystickView.Joys
                 }
 
             });
-    }
-
-
-
-    @Override
-    public void joystickTouched(float xVal, float yVal) {
-        Log.d("Locatin is: " , xVal + ": " + yVal);
     }
 }

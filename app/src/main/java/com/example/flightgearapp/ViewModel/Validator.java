@@ -1,5 +1,10 @@
 package com.example.flightgearapp.ViewModel;
 
+
+/*
+This class is a help class, responsible for valdating the input IP Address and Port number.
+There are several valdations, such as: input != empty && port is in range etc.
+ */
 public class Validator {
     //Validate the input IP Address
 
@@ -7,11 +12,23 @@ public class Validator {
     int port;
     String ip;
 
+    /*
+    There are 2 C'tors, empty one incase of using the inner methods,
+    And the other one is in case of full valdiating checking.
+     */
+    public Validator(){}
+
     public Validator(String ip, int port) {
         this.ip = ip;
         this.port = port;
     }
 
+
+    /**
+     * Validate if the given port number is in range.
+     * @param port
+     * @return
+     */
     public boolean portValidator(int port) {
         if(port > 1024 && port < 65535)
             return true;
@@ -19,6 +36,11 @@ public class Validator {
             return false;
     }
 
+    /**
+     * Validate if the IP Address is valid.
+     * @param ip
+     * @return
+     */
     public boolean ipValidator(String ip) {
         try {
             if ( ip == null || ip.isEmpty() ) {
@@ -44,5 +66,18 @@ public class Validator {
         } catch (NumberFormatException nfe) {
             return false;
         }
+    }
+
+    /**
+     * Validate that both IP and PORT input is not empty.
+     * @param ip
+     * @param prePort
+     * @return
+     */
+    public boolean emptyValidation(String ip, String prePort) {
+        if(prePort.matches("") || ip.matches(""))
+            return false;
+        else
+                return true;
     }
 }

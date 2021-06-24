@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.example.flightgearapp.Model.TcpClient;
 
 /*
-This class is responsible for the entire logic of JoystickActivity,
+Helper class, is responsible for the entire logic of JoystickActivity,
 it decouples its relation to the program -
 and makes the Joustick component totally independent.
  */
@@ -22,16 +22,19 @@ public class ClientHandler {
     private final String rudder = "set /controls/flight/rudder ";
     private final String throttle = "set /controls/engines/current-engine/throttle ";
 
-    private TextView output;
 
     public ClientHandler(int port, String ip) {
         this.port = port;
         this.ip = ip;
         tcpClient = new TcpClient(ip, port);
-//        tcpClient = new TcpClient("192.168.1.162", 8000);
-
+//        tcpClient = new TcpClient("192.168.1.162", 8000); //My default input
     }
 
+    /**
+     * Setter methods - they send the data to TCPClient which than pass it
+     * to FG Server.
+     * @param val
+     */
     public void setAileron(float val) {
         tcpClient.sendMessage(aileron, val);
     }

@@ -1,23 +1,18 @@
 package com.example.flightgearapp.Model;
 
-//This class is the client side of the TCP-socket communication,
-//The server-side is the FlightGear simulator itself.
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.InetAddress;
-import java.net.InetSocketAddress;
 import java.net.Socket;
-import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Map;
 
-
-//Initializing members
+/**
+ * This class is the client side of the TCP-socket communication,
+ * The server-side is the FlightGear simulator itself.
+ */
 public class TcpClient {
+
+    //Members:
     private Socket socket; //A socket to communicate with the server.
     private PrintWriter printWriter; //Output streamer to write *to* server.
     private String ipAddress; //The ip address
@@ -31,31 +26,23 @@ public class TcpClient {
             connect();
     }
 
+    /**
+     * A method to set the connection to the FG Server.
+     * Running on a different thread.
+     */
     public void connect() {
         final Thread connectThread = new Thread() {
             @Override
             public void run() {
-                try {
+                try
+                {
+                    //Setting the connection required elements
                     InetAddress inetAddress = InetAddress.getByName(ipAddress);
-
-
-
                     socket = new Socket(inetAddress, port);
-
-//                    printWriter = new PrintWriter(socket.getOutputStream(), true);
-                    printWriter = new PrintWriter(socket.getOutputStream(), true);
-
-//                    sendMessage();
-//                    setValue(printWriter, socket);
-
-                    if(socket.isConnected()){
-                        System.out.println("Connected");
-                    }
-                    else {
-                        System.out.println("Not Connected");
-                    }
+                    printWriter = new PrintWriter(socket.getOutputStream(), true); //Simply wrap the socket's output stream.
                 }
-                catch (IOException e) {
+                catch (IOException e)
+                {
                     e.printStackTrace();
                 }
             }
@@ -63,21 +50,28 @@ public class TcpClient {
         connectThread.start();
     }
 
-    //Sending the message to the server
+    /**
+     * Sending the commands to the server.
+     * Running on a different thread.
+     * @param path
+     * @param value
+     */
     public void sendMessage(String path, float value){
         final Thread thread = new Thread() {
             @Override
-            public void run() {
-
+            public void run()
+            {
                 final String message = path + value + "\r\n";
                 printWriter.print(message);
-
                 printWriter.flush();
-
             }
         };thread.start();
     }
 
+    /**
+     * Disconnect from the server,
+     * simply closing the PrintWriter and the Socket.
+     */
     public void disconnect() {
         printWriter.close();
         try {

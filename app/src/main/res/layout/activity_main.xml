@@ -9,13 +9,6 @@
     android:layout_height="match_parent"
     android:background="#114064">
 
-
-    <!--    IP input-->
-
-    <!--    Port input-->
-
-    <!--    Connect button-->
-
     <EditText
         android:id="@+id/ip"
         android:layout_width="142dp"

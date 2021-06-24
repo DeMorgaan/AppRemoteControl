@@ -68,25 +68,6 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
             joystickListener = (JoystickListener) context;
     }
 
-//    @Override
-//    protected void onCreate(Bundle savedInstanceState) {
-//        super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_second);
-//
-//        TextView textView = findViewById(R.id.tv);
-//        String ip =getIntent().getStringExtra("ip");
-//
-//        TcpClient tcpClient = new TcpClient("192.168.1.162", 8000);
-//        System.out.println("Arrived!");
-//
-////        tcpClient.setValue();
-//
-////        tcpClient.sendMessage();
-//
-////        tcpClient.connect("192.168.1.162", 8080);
-//
-//    }
-
     /*
         A method derived from the OnTouchListener interface, used for user-input interaction,
         Method's been called everything the user touches the screen.
@@ -147,7 +128,6 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
     }
 
 
-
     /*
     A method ot draw the Joystick on the screen, using Canvas Object.
      */
@@ -190,6 +170,10 @@ public class JoystickView extends SurfaceView implements View.OnTouchListener, S
             getHolder().unlockCanvasAndPost(canvasDrawer); //Prints the canvas to the Surface view - here's the actual drawing
         }
     }
+
+    /**
+     * This interface will be implemented by any class which desires to listen to the joystick's touch.
+     */
     public interface JoystickListener
     {
         void joystickTouched(float xVal, float yVal);
