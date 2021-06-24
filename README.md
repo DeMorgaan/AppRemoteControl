@@ -19,9 +19,9 @@ and make sure you change the settings of the FlightGear Simulator Application -
 for the connection:
 Add the generic_small.xml file to the /data/Protocol directory where you installed the simulator Config the following settings in the 'Settings' tab in the simulator:
 
-> --telnet=socket,in,10,127.0.0.1,6000,tcp 
+> --telnet=socket,in,10,127.0.0.1,8000,tcp 
 
-> --generic=socket,out,10,127.0.0.1,6400,tcp,generic_small 
+> --generic=socket,out,10,127.0.0.1,8000,tcp,generic_small 
 
 so you can start running the app and fly the airplane.
 
@@ -30,7 +30,7 @@ You should be able to see both of the FlightGear Simulator App and our Android F
 
 -image-
 
-You need to insert the "ip number" (for sure by using the command **ipconfing** in your cmd) , and "port number" which is the same above in settings "6000".
+You need to insert the "ip number" (for sure by using the command **ipconfing** in your cmd) , and "port number" which is the same above in settings "8000".
 
 Then press -connect- button to you could start using the joystick and decide the directions of the airplane.
 
@@ -58,8 +58,7 @@ These classes are the view of the app - which contains the buttons,joystick and 
 <br>
 
     # Documentation/UML
-Here attached the UML link ,that contains information of the main classes and the connection between them -Link-
-
+Here attached the UML link ,that contains information of the main classes and the connection between them -https://lucid.app/lucidchart/c9b302ef-34ef-4480-8c79-e98f6ff43d68/view?page=0_0# -
 For developers there is also documentation of the code in the code files for you.
 
     # Video
