@@ -1,5 +1,8 @@
-![Uploading 1.jpg…]()
 # Android FlightGear App
+![image](https://user-images.githubusercontent.com/60241230/123306182-a3001880-d529-11eb-99d4-b7f6da4bf85c.png)
+![1](https://user-images.githubusercontent.com/60241230/123306299-c925b880-d529-11eb-8d63-fe87072e3ba2.jpg)
+
+
 
 ***Description :***
 
@@ -57,8 +60,6 @@ These classes are the view of the app - which contains the buttons,joystick and 
 ## Documentation UML and Video
 
 <br>
-
-![image](https://user-images.githubusercontent.com/60241230/123306182-a3001880-d529-11eb-99d4-b7f6da4bf85c.png)
 
 
     # Documentation/UML
