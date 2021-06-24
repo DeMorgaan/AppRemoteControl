@@ -61,6 +61,9 @@ These classes are the view of the app - which contains the buttons,joystick and 
 
 <br>
 
+![image](https://user-images.githubusercontent.com/60241230/123307600-5c132280-d52b-11eb-81ff-8cb0a2f5ca5d.png)
+
+<br>
 
     # Documentation/UML
 Here attached the UML link ,that contains information of the main classes and the connection between them -https://lucid.app/lucidchart/c9b302ef-34ef-4480-8c79-e98f6ff43d68/view?page=0_0# -
