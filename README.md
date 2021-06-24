@@ -1,3 +1,4 @@
+![Uploading 1.jpg…]()
 # Android FlightGear App
 
 ***Description :***
@@ -56,6 +57,9 @@ These classes are the view of the app - which contains the buttons,joystick and 
 ## Documentation UML and Video
 
 <br>
+
+![image](https://user-images.githubusercontent.com/60241230/123306182-a3001880-d529-11eb-99d4-b7f6da4bf85c.png)
+
 
     # Documentation/UML
 Here attached the UML link ,that contains information of the main classes and the connection between them -https://lucid.app/lucidchart/c9b302ef-34ef-4480-8c79-e98f6ff43d68/view?page=0_0# -
