@@ -59,7 +59,10 @@ These classes are the view of the app - which contains the buttons,joystick and 
 
 
     # Documentation/UML
-Here attached the UML link ,that contains information of the main classes and the connection between them -https://lucid.app/lucidchart/c9b302ef-34ef-4480-8c79-e98f6ff43d68/view?page=0_0# -
+Here attached the UML link ,that contains information of the main classes and the connection between them -
+
+<br>
+https://lucid.app/lucidchart/c9b302ef-34ef-4480-8c79-e98f6ff43d68/view?page=0_0# -
 For developers there is also documentation of the code in the code files for you.
 
 <br>
@@ -69,4 +72,6 @@ For developers there is also documentation of the code in the code files for you
 <br>
 
     # Video
-Here attached the link of a video where we demonstrate the use of the server:https://www.youtube.com/watch?v=_-fX3Ycm6BE
+Here attached the link of a video where we demonstrate the use of the server:
+<br>
+https://www.youtube.com/watch?v=_-fX3Ycm6BE
