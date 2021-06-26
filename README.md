@@ -69,4 +69,4 @@ For developers there is also documentation of the code in the code files for you
 <br>
 
     # Video
-Here attached the link of a video where we demonstrate the use of the server:  https://linksharing.samsungcloud.com/contents/view?contentsToken=1624661214635CWVHTEu&currentIndex=1&linkUrlVersion=V0
+Here attached the link of a video where we demonstrate the use of the server:https://www.youtube.com/watch?v=_-fX3Ycm6BE
